@@ -1,22 +1,10 @@
 {
-  "mcpServers": {
-    "filesystem": {
-      "type": "stdio",
-      "command": "npx",
-      "args": [
-        "@modelcontextprotocol/server-filesystem",
-        "/workspaces/devcontainer-dotfiles"
-      ],
-      "env": {
-        "FASTMCP_LOG_LEVEL": "ERROR"
-      }
-    },
+  "servers": {
     "graphiti": {
-      "type": "stdio",
       "command": "/home/dev/.local/bin/uv",
       "args": [
         "run",
-        "--isolated",
+        "--isolated", 
         "--directory",
         "/mcp-servers/graphiti/mcp_server",
         "--project",
@@ -32,19 +20,21 @@
         "OPENAI_API_KEY": "${OPENAI_API_KEY}"
       }
     },
-    "github": {
-      "type": "stdio",
+    "github-mcp-server": {
       "command": "docker",
       "args": [
-        "run",
-        "-i",
-        "--rm",
-        "-e",
-        "GITHUB_PERSONAL_ACCESS_TOKEN=${GITHUB_PERSONAL_ACCESS_TOKEN}",
+        "run", "-i", "--rm",
+        "-e", "GITHUB_PERSONAL_ACCESS_TOKEN=${GITHUB_PERSONAL_ACCESS_TOKEN}",
         "ghcr.io/github/github-mcp-server:latest",
         "stdio"
-      ],
-      "env": {}
+      ]
+    },
+    "filesystem-mcp-server": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-filesystem", "/workspaces/solution-workspace"],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      }
     }
   }
 }
