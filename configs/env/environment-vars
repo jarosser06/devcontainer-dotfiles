@@ -1,0 +1,22 @@
+#!/bin/bash
+# Personal Environment Variables (adapted from existing dotfiles)
+
+# Development directories
+export PROJECTS_DIR=/workspaces
+export CUSTOM_BIN=$HOME/.local/bin
+
+# Python development
+export WORKON_HOME=$HOME/.virtualenvs
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export PIP_RESPECT_VIRTUALENV=true
+
+# Editor and shell
+export EDITOR=vim
+export SHELL=/bin/bash
+
+# History
+export SAVEHIST=10000
+export HISTSIZE=10000
+
+# Git prompt configuration
+export GIT_PS1_SHOWDIRTYSTATE=true

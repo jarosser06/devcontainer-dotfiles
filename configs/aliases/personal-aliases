@@ -1,0 +1,16 @@
+#!/bin/bash
+# Personal Command Aliases (from existing dotfiles)
+
+# Git aliases (adapted for containers)
+alias gpr="git pull-request"
+alias ll="ls -lh"
+alias ports-listening="netstat -an -ptcp | grep LISTEN"
+alias pfiles="lsof -a -p"
+
+# Development aliases
+alias workspace="cd /workspaces"
+
+# Docker aliases for containers
+alias dc="docker-compose"
+alias dps="docker ps"
+alias di="docker images"

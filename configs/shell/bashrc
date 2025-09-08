@@ -1,0 +1,39 @@
+#!/bin/bash
+# Personal Bash Configuration for DevContainers
+
+# Source git prompt and Dracula theme
+# Find dotfiles directory (this file is at ~/.bashrc_personal -> dotfiles/configs/shell/bashrc)
+SCRIPT_PATH="${BASH_SOURCE[0]}"
+if [ -L "$SCRIPT_PATH" ]; then
+    SCRIPT_PATH="$(readlink "$SCRIPT_PATH")"
+fi
+DOTFILES_DIR="$(dirname "$(dirname "$(dirname "$SCRIPT_PATH")")")"
+source "$DOTFILES_DIR/configs/shell/git-ps1.sh"
+
+# Personal environment variables (from current dotfiles)
+export EDITOR=vim
+export PROJECTS_DIR=/workspaces
+export WORKON_HOME=$HOME/.virtualenvs
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export PIP_RESPECT_VIRTUALENV=true
+
+# PATH additions
+export PATH="$HOME/.local/bin:$PATH"
+
+# Virtualenvwrapper setup for containers
+if [ -f /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]; then
+    source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+elif [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
+
+# Personal aliases
+source "$DOTFILES_DIR/configs/aliases/personal-aliases"
+
+# History configuration
+export SAVEHIST=10000
+export HISTSIZE=10000
+export HISTCONTROL=ignoredups:erasedups
+
+# Case-sensitive completion
+bind "set completion-ignore-case off"

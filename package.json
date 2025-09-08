@@ -1,0 +1,19 @@
+{
+  "name": "devcontainer-dotfiles",
+  "version": "1.0.0",
+  "description": "Personal devcontainer customization with shell configuration and global Claude agents",
+  "main": "install.js",
+  "scripts": {
+    "install": "node install.js",
+    "test": "node scripts/utils.js"
+  },
+  "keywords": ["devcontainer", "dotfiles", "claude-code", "agents", "bash", "dracula"],
+  "author": "Jim",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2"
+  }
+}
