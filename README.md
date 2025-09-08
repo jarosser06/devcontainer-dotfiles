@@ -9,7 +9,7 @@ Add to your VS Code `settings.json`:
 
 ```json
 {
-  "dotfiles.repository": "https://github.com/YOUR_USERNAME/devcontainer-dotfiles",
+  "dotfiles.repository": "https://github.com/jarosser06/devcontainer-dotfiles",
   "dotfiles.targetPath": "~/.devcontainer-dotfiles",
   "dotfiles.installCommand": "node install.js"
 }
